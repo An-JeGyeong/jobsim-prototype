@@ -1,35 +1,6 @@
-import { choices, apiDesign } from '../data/dummyData.js'
+import { choices } from '../data/dummyData.js'
 
-export default function TaskPanel({ phase, selected, onSelect, onSubmit, onNext, onExit, feedback }) {
-  if (phase === 'design') {
-    return (
-      <section className="card task">
-        <span className="pill">NEXT · API 설계</span>
-        <h2>현재 업무</h2>
-        <p className="lead">{apiDesign.title}</p>
-        <ul className="api-list">
-          {apiDesign.endpoints.map((e) => (
-            <li key={e.path + e.method}>
-              <span className={`method ${e.method}`}>{e.method}</span>
-              <code>{e.path}</code>
-              <span className="api-desc">{e.desc}</span>
-            </li>
-          ))}
-        </ul>
-        <h4 className="card-title">설계 전에 생각해볼 점</h4>
-        <ul className="hints">
-          {apiDesign.hints.map((h) => (
-            <li key={h}>{h}</li>
-          ))}
-        </ul>
-        <div className="task-actions">
-          <button className="btn ghost dark" onClick={onExit}>메인으로 돌아가기</button>
-          <button className="btn primary" disabled>다음 업무 진행 (준비 중)</button>
-        </div>
-      </section>
-    )
-  }
-
+export default function TaskPanel({ phase, selected, onSelect, onSubmit, onNext, feedback }) {
   const done = phase === 'feedback'
   return (
     <section className="card task">

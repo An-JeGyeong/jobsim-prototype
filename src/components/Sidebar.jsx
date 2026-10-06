@@ -29,7 +29,7 @@ const menus = [
   { id: 'home', label: '홈', icon: 'home', go: 'main' },
   { id: 'explore', label: '직무 탐색', icon: 'search' },
   { id: 'sim', label: '직무 체험', icon: 'work', go: 'sim' },
-  { id: 'report', label: '리포트', icon: 'report' },
+  { id: 'report', label: '리포트', icon: 'report', go: 'report' },
   { id: 'profile', label: '프로필', icon: 'user' },
 ]
 

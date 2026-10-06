@@ -39,7 +39,7 @@ export const flow = [
   { no: '05', title: '직무 리포트 확인', desc: '나의 업무 방식과 직무 이해도를 확인합니다.' },
 ]
 
-export const steps = ['프로젝트 배정', '요구사항 분석', 'API 설계', '개발', '피드백', '결과']
+export const steps = ['프로젝트 배정', '요구사항 분석', 'API 설계', '피드백 수정', '기술 선택', '자기 평가', '직무 리포트']
 
 export const project = {
   name: 'Campus Order',
@@ -68,6 +68,8 @@ export const initialMessages = [
 export const members = {
   jisu: { name: '김지수', role: '서비스 기획자' },
   junho: { name: '박준호', role: '백엔드 선임 개발자' },
+  seoyeon: { name: '이서연', role: '프론트엔드 개발자' },
+  minsu: { name: '최민수', role: '인프라 담당' },
   me: { name: '나', role: '백엔드 개발자' },
 }
 
