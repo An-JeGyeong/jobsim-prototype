@@ -39,18 +39,24 @@ export const flow = [
   { no: '05', title: '직무 리포트 확인', desc: '나의 업무 방식과 직무 이해도를 확인합니다.' },
 ]
 
-export const steps = ['프로젝트 배정', '요구사항 분석', 'API 설계', '피드백 수정', '기술 선택', '자기 평가', '직무 리포트']
+export const steps = ['프로젝트 배정', '요구사항 확인', '문서 작성', '피드백 수정', '제약 조사', '자기 평가', '직무 리포트']
 
 export const project = {
   name: 'Campus Order',
   desc: '대학교 내 카페의 모바일 주문 서비스를 개발하는 프로젝트입니다.',
   role: '백엔드 개발자',
-  task: '주문 API 요구사항 분석',
+  task: '주문 기능 요구사항 분석',
   situation:
     '기획자가 새로운 주문 기능을 요청했습니다. 요구사항을 확인하고 API 개발 전에 필요한 정보를 정리해보세요.',
 }
 
 export const initialMessages = [
+  {
+    id: 0,
+    from: 'teamlead',
+    text: '새로 합류하셨죠? 이번에 Campus Order의 주문 기능 개발을 시작합니다.\n\n개발에 들어가기 전에 기획자와 요구사항을 확인하고, 문서로 정리해서 공유해 주세요.',
+    time: '09:30',
+  },
   {
     id: 1,
     from: 'jisu',
@@ -68,6 +74,7 @@ export const initialMessages = [
 export const members = {
   jisu: { name: '김지수', role: '서비스 기획자' },
   junho: { name: '박준호', role: '백엔드 선임 개발자' },
+  teamlead: { name: '정하윤', role: '팀장' },
   seoyeon: { name: '이서연', role: '프론트엔드 개발자' },
   minsu: { name: '최민수', role: '인프라 담당' },
   me: { name: '나', role: '백엔드 개발자' },

@@ -21,7 +21,7 @@ export default function ReportPage({ result, onHome, onStart }) {
           <h4>이번에 경험한 업무</h4>
           <div className="exp">
             <b>백엔드 개발자</b>
-            <p>Campus Order · 요구사항 분석 및 API 설계{dir ? ` / ${dir.title}` : ''}</p>
+            <p>Campus Order · 요구사항 분석{dir ? ` / ${dir.title}` : ''}</p>
           </div>
         </section>
 

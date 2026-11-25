@@ -18,7 +18,7 @@ export default function JobReport({ result, choiceId, directionId, onHome, onSum
   const dir = directions.find((d) => d.id === directionId)
   const timeline = [
     { t: '1차 협업', d: choice ? choice.title : '요구사항 확인' },
-    { t: '2차 협업', d: 'API 명세서 수정 · 주문 상태/취소 예외 보완' },
+    { t: '2차 협업', d: '요구사항 문서 수정 · 주문 상태/취소 처리 보완' },
     { t: '3차 협업', d: dir ? `${dir.title} 선택` : '방향 선택' },
   ]
 
@@ -27,13 +27,13 @@ export default function JobReport({ result, choiceId, directionId, onHome, onSum
       <div className="col">
         <section className="card">
           <span className="tagline">체험한 업무</span>
-          <h4 className="rep-title">불명확한 요구사항 속 API 설계 조율</h4>
-          <p className="muted dark">요구사항 확인 → 명세서 작성 → 피드백 반영 → 기술 선택까지 한 사이클을 체험했습니다.</p>
+          <h4 className="rep-title">불명확한 요구사항을 확인하고 문서로 정리</h4>
+          <p className="muted dark">팀장 지시 → 질문 → 문서 작성 → 피드백 반영 → 충돌 조정까지 한 사이클을 체험했습니다.</p>
         </section>
         <section className="card">
           <span className="tagline">업무 의미</span>
-          <h4 className="rep-title">요구사항 분석 및 API 설계 단계</h4>
-          <p className="muted dark">개발 전에 기획·프론트·운영 관점을 조율해 API 구조를 확정하는 과정입니다. 이번 세션에서는 직접 명세서를 쓰고 피드백으로 고쳐본 경험을 했습니다.</p>
+          <h4 className="rep-title">요구사항 분석 단계</h4>
+          <p className="muted dark">개발 전에 기획·프론트·운영 관점의 요구를 확인하고 모호한 조건을 정리하는 과정입니다. 이번 세션에서는 직접 요구사항 문서를 쓰고 피드백으로 고쳐봤습니다.</p>
         </section>
         <section className="card">
           <span className="tagline">업무 진행 과정</span>

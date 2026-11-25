@@ -23,8 +23,8 @@ const pad = (n) => String(n).padStart(2, '0')
 // stage → 상단 진행 단계 index
 const stepOf = { intro: 0, req: 1, design: 2, review1: 3, revise: 3, review2: 3, direction: 3, vendor: 4, selfeval: 5, report: 6 }
 const taskLabel = {
-  req: project.task, design: 'API 명세서 작성', review1: '명세서 피드백 확인', revise: '명세서 수정',
-  review2: '2차 피드백 확인', direction: '수정 방향 선택', vendor: '결제 대행사(PG) 탐색',
+  req: project.task, design: '요구사항 문서 작성', review1: '문서 피드백 확인', revise: '요구사항 문서 수정',
+  review2: '2차 피드백 확인', direction: '충돌 요구사항 해결', vendor: '결제 연동 제약 조사',
 }
 
 export default function SimulationPage({ onExit, onFinish, onOpenSummary }) {
@@ -91,17 +91,17 @@ export default function SimulationPage({ onExit, onFinish, onOpenSummary }) {
     setReqDone(true)
   }
   const toDesign = () => {
-    addLog('다음 업무 진입: API 설계')
-    say('junho', '좋아요. 확인한 내용을 바탕으로 API 명세서 초안을 작성해보세요. 설계 근거도 꼭 적어주세요.')
+    addLog('다음 업무 진입: 요구사항 문서 작성')
+    say('junho', '좋아요. 확인한 내용을 바탕으로 요구사항 문서 초안을 작성해보세요. 작성 근거도 꼭 적어주세요.')
     setStage('design')
   }
 
-  // ----- 2. 명세서 초안 -----
+  // ----- 2. 요구사항 문서 초안 -----
   const editSpec = (tab, field, value) => setSpec((s) => ({ ...s, [tab]: { ...s[tab], [field]: value } }))
   const specFilled = Object.values(spec).every((t) => Object.values(t).every((v) => v.trim()))
   const submitDraft = () => {
     setDraft(JSON.stringify(spec))
-    addLog('API 명세서 초안 제출')
+    addLog('요구사항 문서 초안 제출')
     say('junho', '초안 잘 받았어요. 검토하고 피드백 남겼습니다.')
     setStage('review1')
   }
@@ -117,10 +117,10 @@ export default function SimulationPage({ onExit, onFinish, onOpenSummary }) {
   }
   const submitRevision = () => {
     setLoading(true)
-    addLog('수정된 명세서 제출')
+    addLog('수정된 요구사항 문서 제출')
     setTimeout(() => {
       setLoading(false)
-      addNote('status2', '주문 상태(status) 값 정의')
+      addNote('status2', '주문 상태 정의 추가')
       say('seoyeon', '수정안 봤어요! 프론트 입장에서 궁금한 점이 있어서 피드백 남길게요.')
       say('minsu', '운영 쪽에서도 확인할 게 있어서 의견 남겼습니다.')
       setStage('review2')
@@ -133,15 +133,15 @@ export default function SimulationPage({ onExit, onFinish, onOpenSummary }) {
   const submitDirection = () => {
     const d = directions.find((x) => x.id === dirId)
     addLog(`방향 선택: ${d.title}`)
-    addNote('realtime', '실시간 주문 확인 방식 결정')
-    say('junho', '방향은 정해졌네요. 이제 결제 연동에 쓸 PG사를 비교해서 골라볼까요?')
+    addNote('realtime', '"실시간" 요구 수준 합의')
+    say('junho', '요구 수준은 정리됐네요. 이제 결제 연동에서 생기는 제약을 조사해볼까요?')
     setStage('vendor')
   }
 
   // ----- 4. 기술 선택 -----
   const checkVendors = () => {
-    addLog('결제 대행사(PG) 비교 확인')
-    addNote('pg', '결제 대행사 비교 완료')
+    addLog('결제 연동 제약 조사')
+    addNote('pg', '결제 연동 제약 조사')
     setVendorChecked(true)
   }
 
@@ -149,7 +149,8 @@ export default function SimulationPage({ onExit, onFinish, onOpenSummary }) {
   const submitSelfEval = () => {
     addLog('자기 평가 제출')
     const r = buildResult({
-      choiceId: selected, directionId: dirId, sent: sent.current, answers, selfNote: selfNote.trim(), notes,
+      choiceId: selected, directionId: dirId, directionReason: dirReason, sent: sent.current, answers,
+      selfNote: selfNote.trim(), notes, draftSpec: JSON.parse(draft), finalSpec: spec, rationale, attached,
     })
     setResult(r)
     onFinish(r)

@@ -15,7 +15,7 @@ export default function MainPage({ onStart }) {
   return (
     <main className="main-page">
       <header className="topbar">
-        <span className="brand">JOB:IN</span>
+        <span className="brand">JobSim</span>
         <span className="profile" aria-label="프로필">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="#222"><circle cx="12" cy="8" r="4" /><path d="M4 21a8 8 0 0 1 16 0z" /></svg>
         </span>
@@ -62,7 +62,7 @@ export default function MainPage({ onStart }) {
         </ol>
       </section>
 
-      <footer className="footer">JOB:IN · 졸업작품 프로토타입 (더미 데이터 기반)</footer>
+      <footer className="footer">JobSim · 졸업작품 프로토타입 (더미 데이터 기반)</footer>
     </main>
   )
 }

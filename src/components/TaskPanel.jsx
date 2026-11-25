@@ -7,7 +7,7 @@ export default function TaskPanel({ phase, selected, onSelect, onSubmit, onNext,
       <span className="pill">현재 업무</span>
       <h2>요구사항 확인</h2>
       <p className="lead">
-        기획자의 요구사항을 확인했습니다. API 설계를 시작하기 전에 추가로 확인해야 할 내용을 선택하세요.
+        기획자의 요구사항을 확인했습니다. 문서를 작성하기 전에 추가로 확인해야 할 내용을 선택하세요.
       </p>
 
       <div className="choices">

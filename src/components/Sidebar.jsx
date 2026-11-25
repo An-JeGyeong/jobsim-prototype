@@ -35,7 +35,7 @@ const menus = [
 
 export function Logo({ size = 36 }) {
   return (
-    <div className="logo" style={{ width: size, height: size }} aria-label="JOB:IN">
+    <div className="logo" style={{ width: size, height: size }} aria-label="JobSim">
       <svg viewBox="0 0 24 24" width={size * 0.55} height={size * 0.55}>
         <path d="M13 3v11a5 5 0 0 1-8 4" fill="none" stroke="#C8F59A" strokeWidth="3.2" strokeLinecap="round" />
         <circle cx="13" cy="19.5" r="0" />

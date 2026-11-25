@@ -18,9 +18,9 @@ export default function VendorPanel({ vendors, onChange, checked, onCheck, onNex
 
   return (
     <section className="card task">
-      <span className="pill">기술 선택</span>
-      <h2>결제 대행사(PG) 탐색</h2>
-      <p className="lead">결제 연동에 쓸 후보 업체를 참고 자료에서 찾아 아래 항목에 맞게 정리하세요.</p>
+      <span className="pill">제약 조사</span>
+      <h2>결제 연동 제약 조사</h2>
+      <p className="lead">결제 요구사항을 정리하려면 후보 결제 대행사(PG)의 제약(연동 기간·수수료·정산 주기)을 알아야 해요. 참고 자료를 보고 정리하세요.</p>
 
       <h4 className="card-title">업체 정보 참고자료</h4>
       <div className="table-wrap">
